@@ -112,7 +112,7 @@ html, body {
   background-position: center;
   z-index: -1;
   transform: scale(1.8); /* Increased from 1.1 to 1.8 */
-  filter: blur(0.9px);
+  filter: blur(0.8px);
   will-change: transform;
 }
 
@@ -463,6 +463,15 @@ a:visited {
   transition: 0.3s;
 }
 
+.button--white{
+  background-color: #fff;
+  color: var(--first-color);
+}
+
+.button--white:hover{
+  background-color: #fff;
+}
+
 .button--flex{
   display: inline-flex;
   align-items: center;
@@ -589,6 +598,50 @@ a:visited {
 .skills__percentage{
   display: block;
   background-color: var(--first-color);
+}
+
+.skills__html{
+  width: 90%;
+}
+
+.skills__css{
+  width: 80%;
+}
+
+.skills__js{
+  width: 80%;
+}
+
+.skills__react{
+  width: 80%;
+}
+
+.skills__php{
+  width: 80%;
+}
+
+.skills__node{
+  width: 80%;
+}
+
+.skills__firebase{
+  width: 80%;
+}
+
+.skills__python{
+  width: 80%;
+}
+
+.skills__figma{
+  width: 80%;
+}
+
+.skills__sketch{
+  width: 80%;
+}
+
+.skills__photoshop{
+  width: 80%;
 }
 
 .skills__close .skills__list{
@@ -1460,8 +1513,10 @@ a:visited {
   margin-right: 0.5rem; /* Add some spacing */
 }
 
+/* Optional hover effect for Y2K style */
 .windows-logo:hover {
   transform: rotate(-5deg) scale(1.1); /* Reverse rotation on hover and scale up slightly */
+  /* filter: drop-shadow(0 0 2px var(--first-color)); */
 }
 
 /*==================== PAGE TRANSITION ====================*/
@@ -1483,22 +1538,45 @@ a:visited {
   pointer-events: all;
 }
 
+/*==================== PRELOADER ====================*/
+/* .preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #06030e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.preloader.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.preloader__spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--first-color);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+} */
+
 .pixel-font {
   font-family: "Jersey 15", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-transform: lowercase;
   font-size: 5rem;
-}
-
-/* SVG Icon styles */
-.services__icon {
-  width: 2rem;
-  height: 2rem;
-  fill: var(--first-color);
-  transition: fill 0.3s;
-}
-
-.services__content:hover .services__icon {
-  fill: #00ffff; /* Change color on hover */
 }

@@ -230,22 +230,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);
     });
   }
-  
-  // Handle clicks on internal links
-//   const links = document.querySelectorAll('a[href]:not([target="_blank"]):not([href^="#"])');
-//   links.forEach(link => {
-//     link.addEventListener('click', function(e) {
-//       const href = this.getAttribute('href');
-//       if (href.startsWith('http') || href.startsWith('//')) return;
-      
-//       e.preventDefault();
-//       if (pageTransition) pageTransition.classList.add('active');
-      
-//       setTimeout(() => {
-//         window.location.href = href;
-//       }, 300);
-//     });
-//   });
 });
 
 // Parallax background effect
