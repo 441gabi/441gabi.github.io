@@ -167,31 +167,115 @@ function scrollUp(){
 }
 window.addEventListener('scroll', scrollUp)
 
-/*==================== DARK LIGHT THEME ====================*/ 
-const themeButton = document.getElementById('theme-button')
-const darkTheme = 'dark-theme'
-const iconTheme = 'uil-sun'
 
-// Previously applied theme
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
+// Dropdown functionality for mobile
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdowns = document.querySelectorAll('.dropdown');
+  
+  dropdowns.forEach(dropdown => {
+    const dropdownLink = dropdown.querySelector('.nav__link');
+    
+    dropdownLink.addEventListener('click', function(e) {
+      // Only activate for mobile view
+      if(window.innerWidth <= 767) {
+        e.preventDefault();
+        dropdown.classList.toggle('show-dropdown');
+        
+        // Close other dropdowns
+        dropdowns.forEach(other => {
+          if(other !== dropdown && other.classList.contains('show-dropdown')) {
+            other.classList.remove('show-dropdown');
+          }
+        });
+      }
+    });
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if(!e.target.closest('.dropdown')) {
+      dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('show-dropdown');
+      });
+    }
+  });
+});
 
-// obtain current theme that the interface has
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-moon' : 'uil-sun'
+// Prevent dropdown scroll from affecting parent elements
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownMenus = document.querySelectorAll('.dropdown__menu');
+  
+  dropdownMenus.forEach(menu => {
+    menu.addEventListener('touchmove', function(e) {
+      // Check if menu is scrollable (content height > visible height)
+      if(this.scrollHeight > this.clientHeight) {
+        e.stopPropagation();
+      }
+    }, { passive: true });
+  });
+});
 
-// validate user selection
-if(selectedTheme){
-    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-    themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
-}
+// Page transition effect
+document.addEventListener('DOMContentLoaded', function() {
+  const pageTransition = document.querySelector('.page-transition');
+  
+  // Show transition when page loads
+  if (pageTransition) {
+    pageTransition.classList.add('active');
+    
+    // Hide transition after content loads
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        pageTransition.classList.remove('active');
+      }, 300);
+    });
+  }
+  
+  // Handle clicks on internal links
+//   const links = document.querySelectorAll('a[href]:not([target="_blank"]):not([href^="#"])');
+//   links.forEach(link => {
+//     link.addEventListener('click', function(e) {
+//       const href = this.getAttribute('href');
+//       if (href.startsWith('http') || href.startsWith('//')) return;
+      
+//       e.preventDefault();
+//       if (pageTransition) pageTransition.classList.add('active');
+      
+//       setTimeout(() => {
+//         window.location.href = href;
+//       }, 300);
+//     });
+//   });
+});
 
-// switch theme with button manually
-themeButton.addEventListener('click', () => {
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
+// Parallax background effect
+document.addEventListener('DOMContentLoaded', function() {
+  const parallaxBg = document.querySelector('.parallax-bg');
+  const pageHeight = Math.max(
+    document.body.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.clientHeight,
+    document.documentElement.scrollHeight,
+    document.documentElement.offsetHeight
+  );
+  
+  // Dynamically adjust height based on page content
+  if (parallaxBg && pageHeight > window.innerHeight * 2) {
+    parallaxBg.style.height = (pageHeight * 1.5) + 'px';
+  }
+  
+  if (parallaxBg) {
+    window.addEventListener('scroll', function() {
+      // Calculate how far down the page we've scrolled
+      const scrolled = window.scrollY;
+      
+      // Use a slower scroll rate for longer pages to prevent running out of background
+      const scrollRate = 0.3; // Reduced from 0.5 to 0.3
+      const translateY = scrolled * scrollRate;
+      
+      // Apply the transform
+      parallaxBg.style.transform = `scale(1.1) translateY(-${translateY}px)`;
+    });
+  }
+});
 
-    // save theme and current icon
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-})

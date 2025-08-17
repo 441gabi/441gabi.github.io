@@ -17,55 +17,55 @@
         <link rel="icon" href="assets/img/hamsterPNG.png" type="image/png">
 
         <title>Gabi's Projects</title>
+        <meta name="theme-color" content="#06030e">
+        <!-- <style>
+            /* Immediate styles to prevent flash */
+            html, body {
+                background-color: #06030e !important;
+                margin: 0;
+                padding: 0;
+            }
+
+
+            
+        </style> -->
     </head>
     <body>
+        <!-- <div style="position:fixed; top:0; left:0; width:100%; height:100%; background:#06030e; z-index:-2;"></div> -->
+    <div class="parallax-bg"></div>
+    <!-- <div class="page-transition"></div> -->
+
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
-                <a href="/index.html" class="nav__logo">Gabi</a>
+                <!-- <a href="/index.html" class="nav__logo">Gabi</a> -->
 
+                <a href="./index.html" class="nav__logo">
+                    <img src="assets/img/windows-logo.png" alt="Home" class="nav__logo windows-logo">
+                </a>
                 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list grid">
-
                         <li class="nav__item">
-                            <a href="/index.html" class="nav__link active-link">
-                                <i class="uil uil-home nav__icon" ></i> Home
-                            </a>
+                            <a href="#" class="nav__link"><i class="uil uil-wrench nav__icon"></i> Projects</a>
                         </li>
-                        
-                        <!-- <li class="nav__item">
-                            <a href="#skills" class="nav__link">
-                                <i class="uil uil-grin-tongue-wink nav__icon"></i> Skills
-                            </a>
-                        </li> -->
-
                         <li class="nav__item">
-                            <a href="#" class="nav__link">
-                                <i class="uil uil-wrench nav__icon"></i> Projects
-                            </a>
+                            <a href="./hobbies.html" class="nav__link"><i class="uil uil-wrench nav__icon"></i> Hobbies</a>
                         </li>
-
                         <li class="nav__item">
-                            <a href="/hobbies.html" class="nav__link">
-                                <i class="uil uil-wrench nav__icon"></i> Hobbies
-                            </a>
+                            <a href="#contact" class="nav__link"><i class="uil uil-phone nav__icon"></i> Contact Me!</a>
                         </li>
-
-                        <li class="nav__item">
-                            <a href="#contact" class="nav__link">
-                                <i class="uil uil-phone nav__icon"></i> Contact Me!
-                            </a>
+                        <li class="nav__item dropdown">
+                            <a href="#" class="nav__link"><i class="uil uil-list-ul nav__icon"></i> More <i class="uil uil-angle-down dropdown-icon"></i></a>
+                            <ul class="dropdown__menu">
+                                <li><a href="https://overseer.gabi441.dev" class="dropdown__link">Overseer</a></li>
+                                <li><a href="https://immich.gabi441.dev" class="dropdown__link">Immich</a></li>
+                            </ul>
                         </li>
                     </ul>
                     <i class="uil uil-times nav__close" id="nav-close"></i>
                 </div>
-
                 <div class="nav__btns">
-                    <!-- Theme Change Button -->
-                    <i class="uil uil-moon change-theme" id="theme-button"></i>
-
-                    
                     <div class="nav__toggle" id="nav-toggle">
                         <i class="uil uil-apps"></i>
                     </div>
@@ -97,8 +97,7 @@
                             a pihole, minecraft server, a HomeAssistant Virtual Machine, 
                             and a Discord bot that I discuss below.<br>
                         </p>
-
-
+                        
                         <div class="portfolio__container container swiper-container">
                             <div class="swiper-wrapper">
                                 <!--==================== IMAGE 1 ====================-->
@@ -128,9 +127,7 @@
                         </div>
 
                     </div>
-                <!-- </div>   
 
-                <div class="about__container container"> -->
                     <br><br>
                     
                     <div class="about__data">
@@ -162,8 +159,9 @@
                     <!--==================== Project 1 ====================-->
                     <div class="services__content">
                         <div>
-                            <i class="uil uil-processor services__icon"></i>
-                            <h3 class="services__title">Hand-Built OS</h3>
+                            <!-- <i class="uil uil-processor services__icon"></i> -->
+                            <img src="assets/icons/computer-disk(1).svg" class="services__icon" alt="Computer Disk" style="width: 4rem; height: 4rem;">
+                            <h3 class="services__title">Hand-Built Operating System</h3>
                         </div>
 
                         <span class="button button--flex button--small button--link services__button">
@@ -204,15 +202,13 @@
                     <!--==================== Project 2 ====================-->
                     <div class="services__content">
                         <div>
-                            <i class="uil uil-robot services__icon"></i>
+                            <img src="assets/icons/robot-face-2.svg" class="services__icon" alt="Robot Face" style="width: 4rem; height: 4rem;">
                             <h3 class="services__title">Conflict-Based Search Evaluation</h3>
                         </div>
-
                         <span class="button button--flex button--small button--link services__button">
                             View More
                             <i class="uil uil-arrow-right button__icon"></i>
                         </span>
-                        
                         <div class="services__modal">
                             <div class="services__modal-content">
                                 <h4 class="services__modal-content">CBS Evaluation</h4>
@@ -248,7 +244,7 @@
                     <!--==================== Project 3 ====================-->
                     <div class="services__content">
                         <div>
-                            <i class="uil uil-graph-bar services__icon"></i>
+                            <img src="assets/icons/game-die.svg" class="services__icon" alt="Computer Disk" style="width: 4rem; height: 4rem;">
                             <h3 class="services__title">Monopoly Strategizer</h3>
                         </div>
 
@@ -295,9 +291,10 @@
             <!--==================== CONTACT ME ====================-->
             <section class="contact section" id="contact">
                 <h2 class="section__title">Contact Me</h2>
-                <span class="section__subtitle">Blow up my phone please</span>
+                <!-- <span class="section__subtitle">Blow up my phone please</span> -->
 
                 <div class="contact__container container grid">
+                    
                     <div class="contact__info-container">
                         <div class="contact__information">
                             <i class="uil uil-phone contact__icon"></i>
@@ -317,6 +314,8 @@
                             </div>
                         </div>
 
+
+                    </div>
                         <div class="contact__information">
                             <i class="uil uil-discord contact__icon"></i>
 
@@ -326,7 +325,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </main>
 
@@ -381,5 +379,8 @@
 
         <!--==================== MAIN JS ====================-->
         <script src="assets/js/main.js"></script>
+
+        
+
     </body>
 </html>
